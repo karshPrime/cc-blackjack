@@ -4,18 +4,20 @@ void head();
 void quit(short games_played, short player_bal);
 
 int main() {
-  head();
-
   unsigned short player_bal = 500;
   unsigned short player_points = 0;
   unsigned short pc_points = 0;
   unsigned short games_played = 0;
-
   char interested;
+
+  head();
   std::cin >> interested;
+  system("clear");
+
   while (interested != 'n' || interested != 'N') {
     // game
   }
+
   quit(games_played, player_bal);
 
   return 0;
