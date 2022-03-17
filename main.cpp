@@ -2,6 +2,7 @@
 
 void head();
 void quit(unsigned short games_played, unsigned short player_bal);
+bool is_lost(unsigned short &points, unsigned short balance);
 
 int main() {
   unsigned short player_bal = 500;
@@ -49,4 +50,12 @@ void quit(unsigned short games_played, unsigned short player_bal) {
   std::cout << "Thank you for playing blackjack." << std::endl;
   std::cout << "You played total of [" << games_played << "] games" << std::endl;
   std::cout << "And you're leaving the game with $" << player_bal << ".00 ." << std::endl;
+}
+
+// Will check for if the player lost
+bool is_lost(unsigned short &points, unsigned short balance = 1) {
+  if (balance <= 0 ||  points > 21) {
+    return true;
+  }
+  return false; // game can continue
 }
