@@ -9,7 +9,7 @@ int main() {
   unsigned short player_bal = 500;
   unsigned short player_points = 0;
   unsigned short pc_points = 0;
-  unsigned short games_played = 1;
+  unsigned short games_played = 0;
 
   char interested;
   std::cin >> interested;
@@ -17,7 +17,7 @@ int main() {
     // game
   }
   quit(games_played, player_bal);
-  
+
   return 0;
 }
 
@@ -31,7 +31,15 @@ void head() {
   std::cout << "                       |__/" << std::endl;
 
   std::cout << "How to play:" << std::endl;
+  std::cout << "- you start the game with $500.00" << std::endl;
+  std::cout << "- on every turn you can either [h]hit or [s]stay" << std::endl;
+  std::cout << "- objective of the game is to get closer to 21 without going over it." << std::endl;
+  std::cout << "- with every hit you would be gambling some money which should be over some said limit" << std::endl;
+  std::cout << "- player to go over 21 loses" << std::endl;
+  std::cout << "- first player to go out of all funds loses" << std::endl;
 
+  std::cout << std::endl;
+  std::cout << "Continue? [Y/n]: ";
 }
 
 void quit(short games_played, short player_bal) {
