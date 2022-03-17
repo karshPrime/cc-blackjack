@@ -1,7 +1,7 @@
 #include <iostream>
 
 void head();
-void quit(short games_played, short player_bal);
+void quit(unsigned short games_played, unsigned short player_bal);
 
 int main() {
   unsigned short player_bal = 500;
@@ -44,7 +44,8 @@ void head() {
   std::cout << "Continue? [Y/n]: ";
 }
 
-void quit(short games_played, short player_bal) {
+void quit(unsigned short games_played, unsigned short player_bal) {
+  system("clear");
   std::cout << "Thank you for playing blackjack." << std::endl;
   std::cout << "You played total of [" << games_played << "] games" << std::endl;
   std::cout << "And you're leaving the game with $" << player_bal << ".00 ." << std::endl;
