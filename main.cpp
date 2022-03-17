@@ -1,8 +1,11 @@
 #include <iostream>
+#include <cstdlib>
+#include <array>
 
 void head();
 void quit(unsigned short games_played, unsigned short player_bal);
 bool is_lost(unsigned short &points, unsigned short balance);
+void generate_deck(std::array<int, 52> &deck);
 
 int main() {
   unsigned short player_bal = 500;
@@ -16,6 +19,8 @@ int main() {
 
   while (interested != 'n' || interested != 'N') {
     system("clear");
+    std::array<int, 52> deck;
+    generate_deck(deck);
     // game
   }
 
@@ -59,4 +64,16 @@ bool is_lost(unsigned short &points, unsigned short balance = 1) {
     return true;
   }
   return false; // game can continue
+}
+
+// generating deck
+void generate_deck(std::array<int, 52> &deck) {
+  // elements in deck array would be 3 digit numbers
+  // first number would represent the card type: 1 heart, 2 diamond, 3 spade, 4 clover
+  for (int i = 1; i != 4; i++) {
+    for (int j = 1; j != 13; j++) {
+      int card = (i * 100) + j;
+      deck[(12*(i-1))+(j-1)] = card;
+    }
+  }
 }
