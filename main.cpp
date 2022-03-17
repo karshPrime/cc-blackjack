@@ -13,9 +13,9 @@ int main() {
 
   head();
   std::cin >> interested;
-  system("clear");
 
   while (interested != 'n' || interested != 'N') {
+    system("clear");
     // game
   }
 
@@ -45,6 +45,7 @@ void head() {
   std::cout << "Continue? [Y/n]: ";
 }
 
+// print end-game stats
 void quit(unsigned short games_played, unsigned short player_bal) {
   system("clear");
   std::cout << "Thank you for playing blackjack." << std::endl;
