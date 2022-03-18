@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/system33/Development/LC2_Blackjack/cmake-build-debug"
+			"value" : "c:/Users/ut-kr/Development/LC2_Blackjack/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -623,7 +623,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/system33/Development/LC2_Blackjack"
+			"value" : "C:/Users/ut-kr/Development/LC2_Blackjack"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1239,7 +1239,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/system33/Development/LC2_Blackjack/cmake-build-debug"
+			"value" : "C:/Users/ut-kr/Development/LC2_Blackjack/cmake-build-debug"
 		},
 		{
 			"name" : "LC2_Blackjack_IS_TOP_LEVEL",
@@ -1263,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/system33/Development/LC2_Blackjack"
+			"value" : "C:/Users/ut-kr/Development/LC2_Blackjack"
 		}
 	],
 	"kind" : "cache",
