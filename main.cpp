@@ -1,11 +1,13 @@
 #include <iostream>
 #include <stdlib.h>
 #include <array>
+#include <vector>
 
 void head();
 void quit(unsigned short games_played, unsigned short player_bal);
 bool is_lost(unsigned short &points, unsigned short balance);
 void generate_deck(std::array<int, 52> &deck);
+void print_cards(std::vector<int> &picked);
 
 int main() {
   unsigned short player_bal = 500;
@@ -25,19 +27,22 @@ int main() {
     std::array<int, 52> deck{};
     generate_deck(deck);
 
+    std::vector<int> player_picked{};
+    std::vector<int> pc_picked{};
+
     while (not is_lost(player_points, player_bal)) {
       if (pc_points < 15) {
-        // draw card
+        pc_picked.push_back(deck[move_counter]);
         move_counter += 1;
       } else {
         // stand
       }
 
       std::cout << "PC  : [" << pc_points << "] ";
-      //todo print cards
+      print_cards(pc_picked);
 
       std::cout << "You : [" << player_points << "] ";
-      //todo print player cards
+      print_cards(player_picked);
 
       //checks if pc went over 21
       if (is_lost(pc_points, 1)) {
@@ -53,6 +58,7 @@ int main() {
       if (user_move != 'h' or user_move != 'H') {
         // is stand
       } else {
+        player_picked.push_back(deck[move_counter]);
         on_stake += 50;
         player_bal -= 50;
         move_counter += 1;
@@ -99,6 +105,11 @@ void quit(unsigned short games_played, unsigned short player_bal) {
   std::cout << "Thank you for playing blackjack." << std::endl;
   std::cout << "You played total of [" << games_played << "] games" << std::endl;
   std::cout << "And you're leaving the game with $" << player_bal << ".00 ." << std::endl;
+}
+
+// print picked up cards
+void print_cards(std::vector<int> &picked) {
+  //
 }
 
 // Will check for if the player lost
