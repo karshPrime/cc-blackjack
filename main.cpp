@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
 #include <array>
 
 void head();
@@ -66,14 +66,25 @@ bool is_lost(unsigned short &points, unsigned short balance = 1) {
   return false; // game can continue
 }
 
-// generating deck
-void generate_deck(std::array<int, 52> &deck) {
-  // elements in deck array would be 3 digit numbers
-  // first number would represent the card type: 1 heart, 2 diamond, 3 spade, 4 clover
-  for (int i = 1; i != 4; i++) {
-    for (int j = 1; j != 13; j++) {
-      int card = (i * 100) + j;
-      deck[(12*(i-1))+(j-1)] = card;
+// will check if a number already exists in the array
+bool is_present(std::array<int, 52> &deck, int &filled_upto, int &value_tocheck) {
+  for (int i = 0; i < filled_upto; i++) {
+    if (deck[i] == value_tocheck) {
+      return true;
     }
+  }
+  return false;
+}
+
+// generating random deck
+void generate_deck(std::array<int, 52> &deck) {
+  // elements in deck array would be 3 digits numbers
+  // first number would represent the card type: 1 heart, 2 diamond, 3 spade, 4 clover
+  for (int i = 0; i != 52; i++) {
+    int card = (100 * (rand() % 4 + 1)) + (100 * (rand() % 12 + 1));
+    while (is_present(deck, i, card)) {
+      card = (100 * (rand() % 4 + 1)) + (100 * (rand() % 12 + 1));
+    }
+    deck[i] = card;
   }
 }
