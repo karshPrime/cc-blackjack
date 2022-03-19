@@ -12,6 +12,9 @@ int main() {
   unsigned short player_points = 0;
   unsigned short pc_points = 0;
   unsigned short games_played = 0;
+  unsigned short move_counter = 0;
+  unsigned short on_stake = 0;
+  char user_move;
   char interested;
 
   head();
@@ -19,9 +22,42 @@ int main() {
 
   while (interested != 'n' || interested != 'N') {
     system("clear");
-    std::array<int, 52> deck;
+    std::array<int, 52> deck{};
     generate_deck(deck);
-    // game
+
+    while (not is_lost(player_points, player_bal)) {
+      if (pc_points < 15) {
+        // draw card
+        move_counter += 1;
+      } else {
+        // stand
+      }
+
+      std::cout << "PC  : [" << pc_points << "] ";
+      //todo print cards
+
+      std::cout << "You : [" << player_points << "] ";
+      //todo print player cards
+
+      std::cout << ">> $" << on_stake << " << on stake" << std::endl << std::endl;
+      std::cout << "hit[h] or stand[S] ";
+      std::cin >> user_move;
+
+      if (user_move != 'h' or user_move != 'H') {
+        // is stand
+      } else {
+        on_stake += 50;
+        player_bal -= 50;
+        move_counter += 1;
+      }
+
+      std::cout << "<>";
+
+    }
+
+    std::cout << "Continue? [Y/n]";
+    std::cin >> interested;
+
   }
 
   quit(games_played, player_bal);
@@ -59,7 +95,7 @@ void quit(unsigned short games_played, unsigned short player_bal) {
 }
 
 // Will check for if the player lost
-bool is_lost(unsigned short &points, unsigned short balance = 1) {
+bool is_lost(unsigned short &points, unsigned short balance) {
   if (balance <= 0 ||  points > 21) {
     return true;
   }
