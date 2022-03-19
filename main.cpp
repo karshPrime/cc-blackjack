@@ -110,8 +110,8 @@ bool is_lost(unsigned short &points, unsigned short balance) {
 }
 
 // will check if a number already exists in the array
-bool is_present(std::array<int, 52> &deck, int &filled_upto, int &value_tocheck) {
-  for (int i = 0; i < filled_upto; i++) {
+bool is_present(std::array<int, 52> &deck, int filled_upto, int &value_tocheck) {
+  for (auto i = 0; i < filled_upto; i++) {
     if (deck[i] == value_tocheck) {
       return true;
     }
@@ -123,7 +123,7 @@ bool is_present(std::array<int, 52> &deck, int &filled_upto, int &value_tocheck)
 void generate_deck(std::array<int, 52> &deck) {
   // elements in deck array would be 3 digits numbers
   // first number would represent the card type: 1 heart, 2 diamond, 3 spade, 4 clover
-  for (int i = 0; i != 52; i++) {
+  for (auto i = 0; i != 52; i++) {
     int card = (100 * (rand() % 4 + 1)) + (100 * (rand() % 12 + 1));
     while (is_present(deck, i, card)) {
       card = (100 * (rand() % 4 + 1)) + (100 * (rand() % 12 + 1));
