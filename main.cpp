@@ -109,7 +109,24 @@ void quit(unsigned short games_played, unsigned short player_bal) {
 
 // print picked up cards
 void print_cards(std::vector<int> &picked) {
-  //
+  for (auto i = 0; i < picked.size(); i++) {
+    int card_type = picked[i] / 100;
+    switch (card_type) {
+      case 1: // heart
+        std::cout << "H";
+        break;
+      case 2: // diamond
+        std::cout << "D";
+        break;
+      case 3: // spade
+        std::cout << "S";
+        break;
+      case 4: // clover
+        std::cout << "C";
+        break;
+    }
+    std::cout << picked[i] % 100 << "\t" << std::endl;
+  }
 }
 
 // Will check for if the player lost
