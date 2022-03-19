@@ -16,6 +16,8 @@ int main() {
   unsigned short games_played = 0;
   unsigned short move_counter = 0;
   unsigned short on_stake = 0;
+  bool pc_stand = false;
+  bool player_stand = false;
   char user_move;
   char interested;
 
@@ -35,7 +37,7 @@ int main() {
         pc_picked.push_back(deck[move_counter]);
         move_counter += 1;
       } else {
-        // stand
+        pc_stand = true;
       }
 
       std::cout << "PC  : [" << pc_points << "] ";
@@ -52,11 +54,11 @@ int main() {
       }
 
       std::cout << ">> $" << on_stake << " << on stake" << std::endl << std::endl;
-      std::cout << "hit[h] or stand[S] ";
+      std::cout << "hit[h] or stand[S] : ";
       std::cin >> user_move;
 
       if (user_move != 'h' or user_move != 'H') {
-        // is stand
+        pc_stand = true;
       } else {
         player_picked.push_back(deck[move_counter]);
         on_stake += 50;
@@ -64,13 +66,24 @@ int main() {
         move_counter += 1;
       }
 
-      std::cout << "<>";
-
+      if (player_stand & pc_stand) {
+        system("clear");
+        if (player_points > pc_points) {
+          std::cout << "Congrats! you won!" << std::endl;
+          std::cout << "Added $" << on_stake * 2 << " in your account" << std::endl;
+        } else if (player_points == pc_points) {
+          std::cout << "There's a draw!" << std::endl;
+          std::cout << "Refunded $" << on_stake << std::endl;
+        } else {
+          std::cout << "You lost! Better try next time :)" << std::endl;
+          std::cout << "Deducted $" << on_stake << " from your account" << std::endl;
+        }
+        break;
+      }
     }
 
     std::cout << "Continue? [Y/n]";
     std::cin >> interested;
-
   }
 
   quit(games_played, player_bal);
