@@ -39,6 +39,13 @@ int main() {
       std::cout << "You : [" << player_points << "] ";
       //todo print player cards
 
+      //checks if pc went over 21
+      if (is_lost(pc_points, 1)) {
+        std::cout << "Congrats! you won!" << std::endl;
+        std::cout << "Added $" << on_stake*2 << " in your account" << std::endl;
+        break;
+      }
+
       std::cout << ">> $" << on_stake << " << on stake" << std::endl << std::endl;
       std::cout << "hit[h] or stand[S] ";
       std::cin >> user_move;
