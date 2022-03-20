@@ -21,16 +21,16 @@ int main() {
   char user_move;
   char interested;
 
+  std::array<int, 52> deck{};
+  std::vector<int> player_picked{};
+  std::vector<int> pc_picked{};
+
   head();
   std::cin >> interested;
 
   while (interested != 'n' || interested != 'N') {
     system("clear");
-    std::array<int, 52> deck{};
     generate_deck(deck);
-
-    std::vector<int> player_picked{};
-    std::vector<int> pc_picked{};
 
     do {
       if (pc_points < 15) {
@@ -84,6 +84,19 @@ int main() {
 
     std::cout << "Continue? [Y/n]";
     std::cin >> interested;
+    if ((interested != 'n' or interested != 'N') and player_bal < 500) {
+      std::cout << "You dont have enough money to continue :/" << std::endl;
+    }
+    // resetting game stats on game end
+    player_picked = {};
+    pc_picked = {};
+    player_points = 0;
+    pc_points = 0;
+    games_played = 0;
+    move_counter = 0;
+    on_stake = 0;
+    pc_stand = false;
+    player_stand = false;
   }
 
   quit(games_played, player_bal);
