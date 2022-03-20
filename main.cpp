@@ -32,7 +32,7 @@ int main() {
     std::vector<int> player_picked{};
     std::vector<int> pc_picked{};
 
-    while (not is_lost(player_points, player_bal)) {
+    do {
       if (pc_points < 15) {
         pc_picked.push_back(deck[move_counter]);
         move_counter += 1;
@@ -80,7 +80,7 @@ int main() {
         }
         break;
       }
-    }
+    } while (not is_lost(player_points, player_bal));
 
     std::cout << "Continue? [Y/n]";
     std::cin >> interested;
