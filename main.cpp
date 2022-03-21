@@ -29,7 +29,7 @@ int main() {
   std::cin >> interested;
 
   while (interested != 'n' || interested != 'N') {
-    system("clear");
+    system("cls");
     generate_deck(deck);
 
     do {
@@ -67,7 +67,7 @@ int main() {
       }
 
       if (player_stand & pc_stand) {
-        system("clear");
+        system("cls");
         if (player_points > pc_points) {
           std::cout << "Congrats! you won!" << std::endl;
           std::cout << "Added $" << on_stake * 2 << " in your account" << std::endl;
@@ -127,7 +127,7 @@ void head() {
 
 // print end-game stats
 void quit(unsigned short games_played, unsigned short player_bal) {
-  system("clear");
+  system("cls");
   std::cout << "Thank you for playing blackjack." << std::endl;
   std::cout << "You played total of [" << games_played << "] games" << std::endl;
   std::cout << "And you're leaving the game with $" << player_bal << ".00 ." << std::endl;
